@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">Sending Data</string>
+
+    <string name="nameEditText">Please enter your Name</string>
+    <string name="emailEditText">Please enter your Email Address</string>
+    <string name="phoneEditText">Please enter your Phone Number</string>
+
+    <string name="signup">Sign up</string>
+
+
 </resources>
