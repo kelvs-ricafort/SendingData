@@ -5,11 +5,14 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
+import android.widget.Button;
+import android.widget.EditText;
+
 
 
 public class FirstFragment extends Fragment {
-    TextView result;
+    EditText name, email;
+    Button btnSend;
 
     public FirstFragment() {
 
@@ -20,14 +23,20 @@ public class FirstFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_first, container, false);
 
-        result = view.findViewById(R.id.textViewResult);
+        name = view.findViewById(R.id.editTextName);
+        email = view.findViewById(R.id.editTextEmail);
+        btnSend = view.findViewById(R.id.btnSend);
 
-        Bundle bundle = getArguments();
-        int userWeight = bundle.getInt("weight");
-        int userHeight = bundle.getInt("height");
+        btnSend.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String userName = name.getText().toString();
+                String userEmail = email.getText().toString();
 
-        double userBMI = (userWeight * 1000) / (userHeight * userHeight);
-        result.setText("Your BMI is: " + userBMI);
+                MainActivity mainActivity = (MainActivity) getActivity();
+                mainActivity.takeData(userName, userEmail);
+            }
+        });
 
         return view;
     }

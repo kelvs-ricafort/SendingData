@@ -8,11 +8,12 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
-    EditText weight, height;
-    Button btnCalculate;
+    TextView name, email;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -20,29 +21,18 @@ public class MainActivity extends AppCompatActivity {
 
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-
         FirstFragment firstFragment = new FirstFragment();
 
-        weight = findViewById(R.id.editTextWeight);
-        height = findViewById(R.id.editTextHeight);
-        btnCalculate = findViewById(R.id.btnCalculate);
+        fragmentTransaction.add(R.id.linear, firstFragment);
 
-        btnCalculate.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Bundle bundle = new Bundle();
-                int userWeight = Integer.valueOf(weight.getText().toString());
-                int userHeight = Integer.valueOf(height.getText().toString());
+        fragmentTransaction.commit();
+    }
 
-                bundle.putInt("weight", userWeight);
-                bundle.putInt("height", userHeight);
+    public void takeData(String userName, String userEmail) {
+        name = findViewById(R.id.textViewName);
+        email = findViewById(R.id.textViewEmail);
 
-                firstFragment.setArguments(bundle);
-                fragmentTransaction.add(R.id.frame, firstFragment);
-                fragmentTransaction.commit();
-            }
-        });
-
-
+        name.setText(userName);
+        email.setText(userEmail);
     }
 }

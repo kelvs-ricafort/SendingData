@@ -5,14 +5,14 @@
 
     <string name="bmi_calculator">BMI Calculator</string>
 
-    <string name="weight_hint">Please enter your weight(kg)</string>
-    <string name="height_hint">Please enter your height(cm)</string>
+    <string name="name_hint">Please enter your name</string>
+    <string name="email_hint">Please enter your email</string>
 
     <string name="calculate_bmi">Calculate BMI</string>
 
     <string name="first_fragment">My First Fragment</string>
 
-    <string name="bmi_text">If BMI is bigger than 25, it is considered overweight</string>
+    <string name="send">Send Data</string>
 
 
 
