@@ -1,11 +1,19 @@
 <resources>
     <string name="app_name">Sending Data</string>
 
-    <string name="nameEditText">Please enter your Name</string>
-    <string name="emailEditText">Please enter your Email Address</string>
-    <string name="phoneEditText">Please enter your Phone Number</string>
+    <string name="application_name">Activity to Fragment</string>
 
-    <string name="signup">Sign up</string>
+    <string name="bmi_calculator">BMI Calculator</string>
+
+    <string name="weight_hint">Please enter your weight(kg)</string>
+    <string name="height_hint">Please enter your height(cm)</string>
+
+    <string name="calculate_bmi">Calculate BMI</string>
+
+    <string name="first_fragment">My First Fragment</string>
+
+    <string name="bmi_text">If BMI is bigger than 25, it is considered overweight</string>
+
 
 
 </resources>

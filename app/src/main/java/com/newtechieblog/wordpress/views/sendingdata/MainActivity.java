@@ -1,8 +1,9 @@
 package com.newtechieblog.wordpress.views.sendingdata;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -10,35 +11,38 @@ import android.widget.EditText;
 
 public class MainActivity extends AppCompatActivity {
 
-    EditText editTextName, editTextEmail, editTextPhone;
-    Button btnSignup;
-
-
+    EditText weight, height;
+    Button btnCalculate;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        editTextName = findViewById(R.id.editTextName);
-        editTextEmail = findViewById(R.id.editTextEmail);
-        editTextPhone = findViewById(R.id.editTextPhone);
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
 
-        btnSignup = findViewById(R.id.btnSignup);
+        FirstFragment firstFragment = new FirstFragment();
 
-        btnSignup.setOnClickListener(new View.OnClickListener() {
+        weight = findViewById(R.id.editTextWeight);
+        height = findViewById(R.id.editTextHeight);
+        btnCalculate = findViewById(R.id.btnCalculate);
+
+        btnCalculate.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                String userName = editTextName.getText().toString();
-                String userEmail = editTextEmail.getText().toString();
-                int userPhone = Integer.parseInt(editTextPhone.getText().toString());
+            public void onClick(View v) {
+                Bundle bundle = new Bundle();
+                int userWeight = Integer.valueOf(weight.getText().toString());
+                int userHeight = Integer.valueOf(height.getText().toString());
 
-                Intent intent = new Intent(getApplicationContext(), SecondActivity.class);
-                intent.putExtra("name", userName);
-                intent.putExtra("email", userEmail);
-                intent.putExtra("phone", userPhone);
+                bundle.putInt("weight", userWeight);
+                bundle.putInt("height", userHeight);
 
-                startActivity(intent);
+                firstFragment.setArguments(bundle);
+                fragmentTransaction.add(R.id.frame, firstFragment);
+                fragmentTransaction.commit();
             }
         });
+
+
     }
 }
