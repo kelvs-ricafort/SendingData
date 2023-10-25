@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Sending Data</string>
 
-    <string name="application_name">Activity to Fragment</string>
+    <string name="application_name">Fragment to Fragment</string>
 
     <string name="bmi_calculator">BMI Calculator</string>
 
@@ -10,7 +10,8 @@
 
     <string name="calculate_bmi">Calculate BMI</string>
 
-    <string name="first_fragment">My First Fragment</string>
+    <string name="first_fragment_name">My First Fragment</string>
+    <string name="second_fragment_name">My Second Fragment</string>
 
     <string name="send">Send Data</string>
 

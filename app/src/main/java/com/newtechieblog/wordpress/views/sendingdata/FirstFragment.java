@@ -2,16 +2,18 @@ package com.newtechieblog.wordpress.views.sendingdata;
 
 import android.os.Bundle;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 
-
-
 public class FirstFragment extends Fragment {
-    EditText name, email;
+
+    EditText name;
     Button btnSend;
 
     public FirstFragment() {
@@ -24,17 +26,25 @@ public class FirstFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_first, container, false);
 
         name = view.findViewById(R.id.editTextName);
-        email = view.findViewById(R.id.editTextEmail);
         btnSend = view.findViewById(R.id.btnSend);
 
         btnSend.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String userName = name.getText().toString();
-                String userEmail = email.getText().toString();
 
-                MainActivity mainActivity = (MainActivity) getActivity();
-                mainActivity.takeData(userName, userEmail);
+                Bundle bundle = new Bundle();
+
+                bundle.putString("userName", userName);
+
+                FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+
+                SecondFragment secondFragment = new SecondFragment();
+                secondFragment.setArguments(bundle);
+
+                fragmentTransaction.replace(R.id.frame, secondFragment);
+                fragmentTransaction.commit();
             }
         });
 
