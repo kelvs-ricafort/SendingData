@@ -1,8 +1,5 @@
 <resources>
-    <string name="app_name">Sending Data</string>
-
-    <string name="application_name">Fragment to Fragment</string>
-
+    <string name="app_name">Creating Fragment</string>
     <string name="bmi_calculator">BMI Calculator</string>
 
     <string name="name_hint">Please enter your name</string>
@@ -14,7 +11,7 @@
     <string name="second_fragment_name">My Second Fragment</string>
 
     <string name="send">Send Data</string>
-
+    <string name="replace">Replace second fragment</string>
 
 
 </resources>

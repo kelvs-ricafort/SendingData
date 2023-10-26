@@ -3,14 +3,13 @@ package com.newtechieblog.wordpress.views.sendingdata;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
-
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
-import android.widget.TextView;
+
 
 public class MainActivity extends AppCompatActivity {
+
+    Button btnReplace;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,9 +20,19 @@ public class MainActivity extends AppCompatActivity {
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
 
         FirstFragment firstFragment = new FirstFragment();
-        fragmentTransaction.replace(R.id.frame, firstFragment);
+        fragmentTransaction.add(R.id.frame, firstFragment);
         fragmentTransaction.commit();
 
+        btnReplace = findViewById(R.id.btnReplace);
+
+        btnReplace.setOnClickListener(v -> {
+            FragmentManager fragManager = getSupportFragmentManager();
+            FragmentTransaction fragTransaction = fragManager.beginTransaction();
+
+            SecondFragment secondFragment = new SecondFragment();
+            fragTransaction.replace(R.id.frame, secondFragment);
+            fragTransaction.commit();
+        });
     }
 
 }
