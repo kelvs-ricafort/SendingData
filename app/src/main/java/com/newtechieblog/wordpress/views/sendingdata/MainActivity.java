@@ -4,35 +4,32 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 
 public class MainActivity extends AppCompatActivity {
-
-    Button btnReplace;
+    Button btnShow;
+    TextView textViewResult;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        FragmentManager fragmentManager = getSupportFragmentManager();
-        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+       btnShow = findViewById(R.id.btnShow);
+       textViewResult = findViewById(R.id.textViewResult);
 
-        FirstFragment firstFragment = new FirstFragment();
-        fragmentTransaction.add(R.id.frame, firstFragment);
-        fragmentTransaction.commit();
+       btnShow.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View v) {
+                FragmentManager fragMan = getSupportFragmentManager();
 
-        btnReplace = findViewById(R.id.btnReplace);
-
-        btnReplace.setOnClickListener(v -> {
-            FragmentManager fragManager = getSupportFragmentManager();
-            FragmentTransaction fragTransaction = fragManager.beginTransaction();
-
-            SecondFragment secondFragment = new SecondFragment();
-            fragTransaction.replace(R.id.frame, secondFragment);
-            fragTransaction.commit();
-        });
+                MyDialogFragment myDialogFragment = new MyDialogFragment();
+                myDialogFragment.show(fragMan, "MyDialogFragment");
+           }
+       });
     }
 
 }

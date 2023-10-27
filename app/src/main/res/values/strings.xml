@@ -1,17 +1,19 @@
 <resources>
-    <string name="app_name">Creating Fragment</string>
-    <string name="bmi_calculator">BMI Calculator</string>
-
-    <string name="name_hint">Please enter your name</string>
-    <string name="email_hint">Please enter your email</string>
-
-    <string name="calculate_bmi">Calculate BMI</string>
-
+    <string name="app_name">Dialog Fragment</string>
     <string name="first_fragment_name">My First Fragment</string>
     <string name="second_fragment_name">My Second Fragment</string>
 
     <string name="send">Send Data</string>
     <string name="replace">Replace second fragment</string>
+
+    <string name="dialog">Show Dialog Fragment</string>
+    <string name="data">Data</string>
+
+    <string name="dialog_fragment">This is a Dialog Fragment</string>
+    <string name="dialog_hint">Enter your name </string>
+    
+    <string name="cancel">Cancel</string>
+    <string name="ok">OK</string>
 
 
 </resources>
